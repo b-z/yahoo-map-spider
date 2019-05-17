@@ -7,17 +7,22 @@ var http = require('http');
 var https = require('https');
 var app = express();
 
-sample_url14 = 'https://map.c.yimg.jp/m?x=7276&y=870&z=14&r=1&style=base:railway&size=512'
+sample_url14 = 'https://map.c.yimg.jp/m?x=7276&y=870&z=14&r=1&style=base:railway&size=512';
 sample_url15 = 'https://map.c.yimg.jp/m?x=14552&y=1740&z=15&r=1&style=base:railway&size=512';
 
+
+sample_google18 = 'https://khms1.googleapis.com/kh?v=124&hl=ja&deg=0&x=232843&y=111380&z=18';
+sample_google19 = 'https://khms0.googleapis.com/kh?v=124&hl=ja&deg=0&x=465678&y=222761&z=19';
+
+
 function downloadImage(url, filename) {
-	https.get(url,function(req,res){  //path为网络图片地址
+	https.get(url,function(req, res) {  //path为网络图片地址
 		var imgData = '';
 		req.setEncoding('binary');
-		req.on('data',function(chunk){
+		req.on('data', function(chunk) {
 			imgData += chunk;
 		});
-		req.on('end',function(){
+		req.on('end', function() {
 			fs.writeFileSync(filename, imgData, 'binary');
 			console.log(filename);
 		})
@@ -84,21 +89,47 @@ function downloadImage(url, filename) {
 
 // //// 17
 // // center: 58208 6960
-var xs = [58193, 58223];
-var ys = [6945, 6975];
-var level = 17;
+// var xs = [58193, 58223];
+// var ys = [6945, 6975];
+// var level = 17;
 
-for (var x = xs[0]; x <= xs[1]; x++) {
-	for (var y = ys[0]; y <= ys[1]; y++) {
-		var url = 'https://map.c.yimg.jp/m?x=' + x + 
-			'&y=' + y +
-			'&z=' + level + 
-			'&r=1&style=base:railway&size=512';
-		var filename = 'images/' + level + '/' + x + '_' + y + '.png';
-		if (!fs.existsSync(filename)) {
-			downloadImage(url, filename);
-		}
-	}
-}
 
+// yahoo map:
+
+// for (var x = xs[0]; x <= xs[1]; x++) {
+// 	for (var y = ys[0]; y <= ys[1]; y++) {
+// 		var url = 'https://map.c.yimg.jp/m?x=' + x + 
+// 			'&y=' + y +
+// 			'&z=' + level + 
+// 			'&r=1&style=base:railway&size=512';
+// 		var filename = 'images/yahoo/' + level + '/' + x + '_' + y + '.png';
+// 		if (!fs.existsSync(filename)) {
+// 			downloadImage(url, filename);
+// 		}
+// 	}
+// }
+
+
+// google map:
+
+// Tokyo
+var center = [232843, 111380];
+var radius = 15;
+var level = 18;
+downloadImage('https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png', 'test.png');
+
+var xs = [center[0] - radius, center[0] + radius + 1];
+var ys = [center[1] - radius, center[1] + radius + 1];
+
+// for (var x = xs[0]; x <= xs[1]; x++) {
+// 	for (var y = ys[0]; y <= ys[1]; y++) {
+// 		var url = 'https://khms1.googleapis.com/kh?v=124&hl=ja&deg=0&x=' + x +
+// 			'&y=' + y +
+// 			'&z=' + level;
+// 		var filename = 'images/google/' + level + '/' + x + '_' + y + '.png';
+// 		if (!fs.existsSync(filename)) {
+// 			downloadImage(url, filename);
+// 		}
+// 	}
+// }
 
