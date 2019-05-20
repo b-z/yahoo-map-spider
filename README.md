@@ -124,7 +124,7 @@ $('body').append($('<img>').attr('src', url));
 
 效果如下:
 
-![img](img-doc/v2-5daff509495431de0235359a2fb2f017_b.png)
+![img](img-doc/cover.png)
 
 完整代码:
 
