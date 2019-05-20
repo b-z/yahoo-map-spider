@@ -50,12 +50,11 @@ size = 512
 w = size * (radius * 2 + 1)
 h = size * (radius * 2 + 1)
 
-# tmp = Image.open('images/14542_1730.png')
 img = Image.new('RGB', (w, h))
 
 for i in x:
 	for j in y:
-		filename = 'images/' + str(level) + '/' + str(i) + '_' + str(j) + '.png'
+		filename = 'images/yahoo/' + str(level) + '/' + str(i) + '_' + str(j) + '.png'
 		print(filename)
 		block = Image.open(filename)
 		img.paste(block, box=(size * (i - x[0]), size * (y[-1] - j)))

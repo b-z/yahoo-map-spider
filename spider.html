@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body, img {
+			margin: 0.5px;
+		}
+		img {
+			width: 45px;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript">
+	function appendImage(url) {
+		$('body').append($('<img>').attr('src', url));
+	}
+
+	function appendNewLine() {
+		$('body').append($('<br>'));	
+	}
+
+	// Tokyo
+	var center = [232843, 111380];
+	var radius = 15;
+	var level = 18;
+	var xs = [center[0] - radius, center[0] + radius];
+	var ys = [center[1] - radius, center[1] + radius];
+	var deg = 0;
+
+	for (var y = ys[0]; y <= ys[1]; y++) {
+		for (var x = xs[0]; x <= xs[1]; x++) {
+			var url = `https://khms1.googleapis.com/kh?v=124&hl=ja&deg=${deg}&x=${x}&y=${y}&z=${level}`;
+			var filename = `images/google/${level}/${x}_${y}.png`;
+			appendImage(url, filename);
+		}
+		appendNewLine();
+	}
+
+	$('body').width((radius * 2 + 1) * 47);
+	</script>
+</body>
+</html>
