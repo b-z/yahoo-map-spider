@@ -53,20 +53,25 @@
 						<label for="size-h">高度<span id="size-h-label"></span></label>
 						<input type="range" id="size-h" min="5" max="50" value="10" />
 					</p>
+					<p>
+						<div class="switch">
+							<label>地图<input id="map-or-label" type="checkbox"><span class="lever"></span>标签</label>
+						</div>
+					</p>
 				</form>
-                <p>
-                    <a class="waves-effect waves-light btn" onclick="preview();">预览</a>
-                    <a class="waves-effect waves-light btn" onclick="save();">保存</a>
-                </p>
-                <p>
-                    <div class="progress">
-                        <div id="progress" class="determinate" style="width: 0%"></div>
-                    </div>
-                    <span id="progress-text"></span>
-                </p>
-                <p>
-                    <canvas id="canvas" style="width: 100%;"></canvas>
-                </p>
+				<p>
+					<a class="waves-effect waves-light btn" onclick="preview();">预览</a>
+					<a class="waves-effect waves-light btn" onclick="save();">保存</a>
+				</p>
+				<p>
+					<div class="progress">
+						<div id="progress" class="determinate" style="width: 0%"></div>
+					</div>
+					<span id="progress-text"></span>
+				</p>
+				<p>
+					<canvas id="canvas" style="width: 100%;"></canvas>
+				</p>
 			</div>
 		</div>
 	</main>
