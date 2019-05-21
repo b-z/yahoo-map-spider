@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<nav class="light-green">
+		<div class="nav-wrapper container wide-container row">
+			<!-- logo -->
+			<div class="brand-logo">
+				<a>
+                    Google map spider🕷
+                </a>
+			</div>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a>Download and merge google map tiles.</a></li>
+			</ul>
+
+		</div>
+	</nav>
+	<main>
+		<div class="container wide-container row no-margin-bottom">
+			<div id="app-container" class="col s12 m10"></div>
+			<div id="settings-container" class="col s12 m2">
+				<form>
+					<p class="range-field">
+						<label for="level">级别<span id="level-label"></span></label>
+						<input type="range" id="level" min="14" max="19" value="18" />
+					</p>
+					<p class="range-field">
+						<label for="deg">方向<span id="deg-label"></span></label>
+						<input type="range" id="deg" min="0" max="270" value="0" step="90" />
+					</p>
+					<div class="row">
+						<div class="col s6">
+							<label for="cx">横坐标</label>
+							<input placeholder="" id="cx" type="number" class="validate" value="232837">
+						</div>
+						<div class="col s6">
+							<label for="cy">纵坐标</label>
+							<input placeholder="" id="cy" type="number" class="validate" value="111380">
+						</div>
+					</div>
+					<p class="range-field">
+						<label for="size-w">宽度<span id="size-w-label"></span></label>
+						<input type="range" id="size-w" min="5" max="50" value="10" />
+					</p>
+					<p class="range-field">
+						<label for="size-h">高度<span id="size-h-label"></span></label>
+						<input type="range" id="size-h" min="5" max="50" value="10" />
+					</p>
+				</form>
+                <p>
+                    <a class="waves-effect waves-light btn" onclick="preview();">预览</a>
+                    <a class="waves-effect waves-light btn" onclick="save();">保存</a>
+                </p>
+                <p>
+                    <div class="progress">
+                        <div id="progress" class="determinate" style="width: 0%"></div>
+                    </div>
+                    <span id="progress-text"></span>
+                </p>
+                <p>
+                    <canvas id="canvas" style="width: 100%;"></canvas>
+                </p>
+			</div>
+		</div>
+	</main>
+
+	<footer class="page-footer">
+		<div class="footer-copyright">
+			<div class="container wide-container">
+				Copyright <b>&copy; 2019 Zhou Bowei.</b> All rights reserved.
+			</div>
+		</div>
+	</footer>
+	<script type="text/javascript" src="js/lib/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/lib/materialize.min.js"></script>
+	<script type="text/javascript" src="js/spider.js"></script>
+	<script type="text/javascript" src="js/merge.js"></script>
+</body>
+
+</html>

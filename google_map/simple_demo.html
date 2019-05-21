@@ -24,15 +24,21 @@
 	}
 
 	// Tokyo
-	var center = [232843, 111380];
-	var radius = 15;
-	var level = 18;
+	// var center = [232843, 111380];
+	// var radius = 15;
+	// var level = 18;
+
+	var center = [232843 * 2, 111380 * 2];
+	var radius = 10;
+	var level = 19;
+
 	var xs = [center[0] - radius, center[0] + radius];
 	var ys = [center[1] - radius, center[1] + radius];
 	var deg = 0;
 
 	for (var y = ys[0]; y <= ys[1]; y++) {
 		for (var x = xs[0]; x <= xs[1]; x++) {
+			// var url = `https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i${level}!2i${x}!3i${y}!4i256!2m3!1e0!2sm!3i467175868!3m17!2sja!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmapSatellite!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjMzfHMuZTpsfHAudjpvZmY!4e0!13i0!14b1&key=AIzaSyDBmW1_kjJ6Kevqf8o-HPfSsuyLXj__4RI&channel=suumo-chintai-chizu&token=42098`
 			var url = `https://khms1.googleapis.com/kh?v=124&hl=ja&deg=${deg}&x=${x}&y=${y}&z=${level}`;
 			var filename = `images/google/${level}/${x}_${y}.png`;
 			appendImage(url, filename);
